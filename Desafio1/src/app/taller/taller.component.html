@@ -1,0 +1,60 @@
+<div class="container">
+    <div [hidden]="ticket">
+        <h2>Formulario de registro de cliente</h2>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="nomb">Nombre:</label>
+                        <input type="text" class="form-control"  [(ngModel)]="nombre" id="nomb" placeholder="Ej. Josue Estrada" >
+                        
+                    </div>
+                    
+                    <div class="form-group col-sm-6">
+                        <label for="dui">DUI:</label>
+                        <input type="text" class="form-control"  [(ngModel)]="DUI" id="dui"  placeholder="Ej. 05555554-7" >
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label for="vehicu">Vehiculo:</label>
+                        <input type="text" class="form-control"  [(ngModel)]="vehic" id="vehicu"  placeholder="Ej. Hyundai accent" >
+                        
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="coste">Costo:</label>
+                        <input type="text" class="form-control"  [(ngModel)]="costo" id="coste" placeholder="Ej. 250" >
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <button (click)="registrar()" class="btn btn-primary">Registrar</button>
+                </div>                       
+          
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>DUI</th>
+                            <th>Vehiculo</th>
+                            <th>Costo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cle of arrayRegistro">
+                            <td>{{cle.nombre}}</td>
+                            <td>{{cle.DUI}}</td>
+                            <td>{{cle.vehicu}}</td>
+                            <td>{{cle.cost}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>               
+    </div>
+
+    <div [hidden]="!ticket">
+        <h2>Los datos han sido calculados</h2>
+        <hr>
+        <button class="btn btn-primary" (click)="ticket=false">Edit</button>
+       </div>
+</div>
