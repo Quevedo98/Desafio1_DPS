@@ -17,7 +17,7 @@ export class TallerComponent implements OnInit {
   vehic:string;
   costo:number;
   descCosto:number;
-  ticket:boolean = false;
+  ticket:boolean = false;//Para mostrar el ticket y esconder el form y viceversa
   cuenta:number;
 
   constructor() { }
@@ -31,7 +31,7 @@ export class TallerComponent implements OnInit {
 
    registrar(){//guarda los datos del cliente y cuenta las visitas para aplicar el descuento
     this.cliente={"nombre":this.nombre,"DUI":this.DUI,"vehicu":this.vehic,"cost":this.costo};     
-     this.cuenta = this.contVisita();   
+     this.cuenta = this.contVisita();//Cuenta las visitas  
       if(this.cuenta == 2){
         this.descCosto = this.costo - (this.costo * 0.05);        
       }
@@ -41,7 +41,7 @@ export class TallerComponent implements OnInit {
       else{
         this.descCosto = 0;
       }
-    this.arrayRegistro.push(this.cliente);
+    this.arrayRegistro.push(this.cliente);//Agrega el registro al arreglo
     this.ticket = true;
   }
   contVisita():number{//Cuenta las visitas segun el dui
